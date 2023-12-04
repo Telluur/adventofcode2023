@@ -3,49 +3,39 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ONE "one"
-#define TWO "two"
-#define THREE "three"
-#define FOUR "four"
-#define FIVE "five"
-#define SIX "six"
-#define SEVEN "seven"
-#define EIGHT "eight"
-#define NINE "nine"
-
 int parseString(const char* line) {
     const size_t remaining_line_size = strlen(line);
-    if (remaining_line_size >= 5) {
-        if (strncmp(line, THREE, 5) == 0) {
-            return 3;
-        }
-        if (strncmp(line, SEVEN, 5) == 0) {
-            return 7;
-        }
-        if (strncmp(line, EIGHT, 5) == 0) {
-            return 8;
-        }
-    }
-    if (remaining_line_size >= 4) {
-        if (strncmp(line, FOUR, 4) == 0) {
-            return 4;
-        }
-        if (strncmp(line, FIVE, 4) == 0) {
-            return 5;
-        }
-        if (strncmp(line, NINE, 4) == 0) {
-            return 9;
-        }
-    }
     if (remaining_line_size >= 3) {
-        if (strncmp(line, ONE, 3) == 0) {
+        if (strncmp(line, "one", 3) == 0) {
             return 1;
         }
-        if (strncmp(line, TWO, 3) == 0) {
+        if (strncmp(line, "two", 3) == 0) {
             return 2;
         }
-        if (strncmp(line, SIX, 3) == 0) {
+        if (strncmp(line, "six", 3) == 0) {
             return 6;
+        }
+        if (remaining_line_size >= 4) {
+            if (strncmp(line, "four", 4) == 0) {
+                return 4;
+            }
+            if (strncmp(line, "five", 4) == 0) {
+                return 5;
+            }
+            if (strncmp(line, "nine", 4) == 0) {
+                return 9;
+            }
+            if (remaining_line_size >= 5) {
+                if (strncmp(line, "three", 5) == 0) {
+                    return 3;
+                }
+                if (strncmp(line, "seven", 5) == 0) {
+                    return 7;
+                }
+                if (strncmp(line, "eight", 5) == 0) {
+                    return 8;
+                }
+            }
         }
     }
     return -1;
@@ -57,7 +47,7 @@ int main() {
     int sum = 0;
 
     // Open the file for reading
-    FILE* file = fopen("/Users/telluur/adventofcode/input/1/challenge.txt", "r");
+    FILE* file = fopen("../input/1/challenge.txt", "r");
     if (file == NULL) {
         perror("Error opening file");
         return 1;
