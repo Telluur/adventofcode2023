@@ -3,4 +3,4 @@ project(adventofcode C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(adventofcode day1.c)
+add_executable(adventofcode day2.c)
